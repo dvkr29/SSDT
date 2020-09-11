@@ -1,10 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[SalesByCategory]
     @CategoryName nvarchar(15), @OrdYear nvarchar(4) = '1998'
 AS
-IF @OrdYear != '1996' AND @OrdYear != '1997' AND @OrdYear != '1998' 
-BEGIN
-	SELECT @OrdYear = '1998'
-END
+--IF @OrdYear != '1996' AND @OrdYear != '1997' AND @OrdYear != '1998' 
+--BEGIN
+--	SELECT @OrdYear = '1998'
+--END
 
 SELECT ProductName,
 	TotalPurchase=ROUND(SUM(CONVERT(decimal(14,2), OD.Quantity * (1-OD.Discount) * OD.UnitPrice)), 0)
